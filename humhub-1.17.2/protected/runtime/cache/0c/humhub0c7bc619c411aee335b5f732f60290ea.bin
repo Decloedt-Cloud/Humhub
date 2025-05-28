@@ -1,0 +1,18 @@
+a:2:{i:0;s:957:"
+
+
+    <div class="media">
+                    <!-- Show user image -->
+            <span class="pull-left has-online-status img-size-medium"><img class="media-object img-rounded" src="/humhub/humhub-1.17.2/uploads/profile_image/16fd6663-33af-4a39-b1d9-7f0eee0998d1.jpg?m=1746182561" width="32" alt="Profile picture of abdelfattah allam" style="width: 32px; height: 32px" data-contentcontainer-id="1"><span class="tt user-online-status user-is-online" title="Online"></span></span>        
+        <!-- Show space image, if you are outside from a space -->
+        
+        <div class="media-body text-break">
+
+            <!-- Show content -->
+            <strong>abdelfattah allam</strong> created this space.            <br>
+
+            <!-- show time -->
+            <time class="tt time timeago" data-ui-addition="timeago" datetime="2025-05-28T16:49:55+01:00" title="May 28, 2025 - 4:49 PM">May 28, 2025 - 4:49 PM</time>        </div>
+    </div>
+
+    ";i:1;N;}
