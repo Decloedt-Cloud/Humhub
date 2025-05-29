@@ -31,7 +31,7 @@ AppAsset::register($this);
         <?php $this->beginBody() ?>
 
         <!-- start: first top navigation bar -->
-        
+        <?php /*
         <div id="topbar-first" class="topbar">
             <div class="container">
                 <div class="topbar-brand hidden-xs">
@@ -46,11 +46,11 @@ AppAsset::register($this);
                     <?= NotificationArea::widget() ?>
                 </div>
             </div>
-        </div>
+        </div>*/ ?>
         <!-- end: first top navigation bar -->
 
         <!-- start: second top navigation bar -->
-        
+        <?php /*
         <div id="topbar-second" class="topbar">
             <div class="container">
                 <ul class="nav" id="top-menu-nav">
@@ -65,7 +65,7 @@ AppAsset::register($this);
                     <?= TopMenuRightStack::widget() ?>
                 </ul>
             </div>
-        </div>
+        </div>*/ ?>
         
         <!-- end: second top navigation bar -->
 
