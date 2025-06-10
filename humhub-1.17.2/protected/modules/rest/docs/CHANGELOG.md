@@ -1,6 +1,21 @@
 Changelog
 =========
 
+0.10.10 (May 20, 2025)
+----------------------
+- Fix #206: `UserPickerField` version compatibility
+
+0.10.9 (May 19, 2025)
+---------------------
+- Enh #204: Bearer Token Auth Improvements
+
+0.10.8 (May 15, 2025)
+---------------------
+- Enh #198: Add doc for Auth Methods
+- Enh #199: Disable `auth/login` endpoint when JWT is disabled
+- Enh #201: Remove session data from legal user data export
+- Enh #202: Add upload support for user `image` and `banner`
+
 0.10.7 (April 22, 2025)
 -----------------------
 - Fix #192: Authentication of unregistered LDAP Users fails
