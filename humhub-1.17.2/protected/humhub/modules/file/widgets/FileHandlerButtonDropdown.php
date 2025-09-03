@@ -35,7 +35,7 @@ class FileHandlerButtonDropdown extends Widget
     /**
      * @var string the default css bootstrap button class
      */
-    public $cssButtonClass = 'btn-success';
+    public $cssButtonClass = '';
 
     /**
      * @var BaseFileHandler[] the handlers to show
@@ -50,40 +50,34 @@ class FileHandlerButtonDropdown extends Widget
     /**
      * @inheritdoc
      */
-    public function run()
-    {
-
-        if (!$this->primaryButton && count($this->handlers) === 0) {
-            return;
-        }
-
-        $output = Html::beginTag('div', ['class' => $this->cssClass]);
-
-        if (!$this->primaryButton) {
-            $firstButton = array_shift($this->handlers)->getLinkAttributes();
-            Html::addCssClass($firstButton, ['btn', $this->cssButtonClass]);
-            $output .= $this->renderLink($firstButton);
-        } else {
-            $output .= $this->primaryButton;
-        }
-
-        if (count($this->handlers) !== 0) {
-            $output .= '<button type="button" class="btn ' . $this->cssButtonClass . ' dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="caret"></span><span class="sr-only">Toggle Dropdown</span></button>';
-
-            $cssClass = ($this->pullRight) ? 'dropdown-menu dropdown-menu-right' : 'dropdown-menu';
-
-            $output .= Html::beginTag('ul', ['class' => $cssClass]);
-            foreach ($this->handlers as $handler) {
-                $output .= Html::beginTag('li');
-                $output .= $this->renderLink($handler->getLinkAttributes());
-                $output .= Html::endTag('li');
-            }
-            $output .= Html::endTag('ul');
-        }
-        $output .= Html::endTag('div');
-
-        return $output;
+public function run()
+{
+    if (!$this->primaryButton && empty($this->handlers)) {
+        return;
     }
+
+    $output = Html::beginTag('div', ['class' => $this->cssClass]);
+
+    // Affiche le bouton principal s'il est défini
+    if ($this->primaryButton) {
+        $output .= $this->primaryButton;
+    } elseif (!empty($this->handlers)) {
+        // Si pas de primaryButton, on prend le premier handler
+        $firstButton = array_shift($this->handlers)->getLinkAttributes();
+        Html::addCssClass($firstButton, ['btn', $this->cssButtonClass]);
+        $output .= $this->renderLink($firstButton);
+    }
+    foreach ($this->handlers as $handler) {
+        $buttonOptions = $handler->getLinkAttributes();
+        Html::addCssClass($buttonOptions, ['btn', $this->cssButtonClass, 'ms-1']); // 'ms-1' pour espacer les boutons
+        $output .= $this->renderLink($buttonOptions);
+    }
+
+    $output .= Html::endTag('div');
+
+    return $output;
+}
+
 
     /**
      * Renders the file handle link

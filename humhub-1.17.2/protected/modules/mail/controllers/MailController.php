@@ -528,4 +528,5 @@ class MailController extends Controller
             ])
             ->one();
     }
+    
 }

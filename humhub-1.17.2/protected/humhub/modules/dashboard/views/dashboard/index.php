@@ -14,7 +14,7 @@ use humhub\libs\Html;
 ?>
 
 <?= Html::beginContainer() ?>
-<div class="row">
+<div class="row3">
     <div class="col-md-8 layout-content-container">
         <?= DashboardContent::widget([
             'contentContainer' => $contentContainer,

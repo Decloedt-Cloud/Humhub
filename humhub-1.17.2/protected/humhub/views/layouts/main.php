@@ -25,13 +25,20 @@ AppAsset::register($this);
         <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
         <?php $this->head() ?>
         <?= $this->render('head') ?>
+            <style>
+        /* Masquer la navbar visuellement mais garder les fonctionnalités */
+        #topbar-first, #topbar-second {
+            display: none !important;
+        }
+    </style>
     </head>
 
     <?= Html::beginTag('body', ['class' => DeviceDetectorHelper::getBodyClasses()]) ?>
         <?php $this->beginBody() ?>
 
         <!-- start: first top navigation bar -->
-        
+    
+
         <div id="topbar-first" class="topbar">
             <div class="container">
                 <div class="topbar-brand hidden-xs">

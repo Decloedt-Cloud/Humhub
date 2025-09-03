@@ -15,6 +15,7 @@ use humhub\modules\mail\widgets\Messages;
 use humhub\modules\ui\form\widgets\ActiveForm;
 use humhub\modules\ui\view\components\View;
 use humhub\widgets\Button;
+use humhub\modules\voicemessage\widgets\VoiceRecorderButton;
 
 /* @var $this View */
 /* @var $replyForm ReplyForm */
@@ -58,49 +59,71 @@ use humhub\widgets\Button;
                 <?php $form = ActiveForm::begin(['enableClientValidation' => false, 'acknowledge' => true]) ?>
 
                 <div class="content-create-input-group">
-
-                    <?= $form->field($replyForm, 'message')->widget(MailRichtextEditor::class, [
-                        'id' => 'reply-' . time(),
-                        'layout' => AbstractRichTextEditor::LAYOUT_INLINE,
-                    ])->label(false) ?>
-
-                    <div class="upload-buttons">
-                        <?php $uploadButton = UploadButton::widget([
-                            'id' => 'mail-create-upload-' . $message->id,
-                            'tooltip' => Yii::t('ContentModule.base', 'Attach Files'),
-                            'options' => ['class' => 'main_mail_upload'],
-                            'progress' => '#mail-create-upload-progress-' . $message->id,
-                            'preview' => '#mail-create-upload-preview-' . $message->id,
-                            'dropZone' => '#mail-create-form-' . $message->id,
-                            'max' => Yii::$app->getModule('content')->maxAttachedFiles,
-                            'cssButtonClass' => 'btn-sm btn-info',
-                        ]) ?>
-                        <?= FileHandlerButtonDropdown::widget([
-                            'primaryButton' => $uploadButton,
-                            'handlers' => $fileHandlers,
-                            'cssButtonClass' => 'btn-info btn-sm',
-                            'pullRight' => true,
-                        ]) ?>
-                        <?= Button::info()
-                            ->cssClass('reply-button')
-                            ->submit()
-                            ->action('reply', $replyForm->getUrl())
-                            ->icon('paper-plane-o')
-                            ->sm() ?>
-                    </div>
+            <div class="input-addon-left"> 
+                     <div class="dropup">
+                        <button class="btn btn-sm" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fa fa-plus"></i>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <?php $uploadButton =UploadButton::widget([
+                                    'id' => 'mail-create-upload-' . $message->id,
+                                    'label' => Yii::t('ContentModule.base', 'Attach Files'), // Le texte visible
+                                    'options' => ['class' => 'main_mail_upload'],
+                                    'progress' => '#mail-create-upload-progress-' . $message->id,
+                                    'preview' => '#mail-create-upload-preview-' . $message->id,
+                                    'dropZone' => '#mail-create-form-' . $message->id,
+                                    'max' => Yii::$app->getModule('content')->maxAttachedFiles,
+                                    'cssButtonClass' => 'dropdown-item', // TRÈS IMPORTANT: pour le style du menu
+                                ]) ?>
+                            </li>
+                            <li>
+                                <?= FileHandlerButtonDropdown::widget([
+                                    'primaryButton' => $uploadButton,
+                                    'handlers' => $fileHandlers,
+                                    'pullRight' => true,
+                                ]) ?>
+                            </li>
+                        </ul>
                 </div>
+            </div>
+                    <div class="flex-grow-1 mb-0">
+                        <?= $form->field($replyForm, 'message')->widget(MailRichtextEditor::class, [
+                            'id' => 'reply-' . time(),
+                            'layout' => AbstractRichTextEditor::LAYOUT_INLINE,
+                        ])->label(false) ?>
+                    </div>
 
-                <div id="mail-create-upload-progress-<?= $message->id ?>" style="display:none;margin:10px 0;"></div>
+                      <div class="input-addon-right">
+                            <?php if (Yii::$app->hasModule('voicemessage')) : ?>
+                                <?= VoiceRecorderButton::widget([
+                                    'id' => 'mail-voice-recorder-' . $message->id,
+                                    'tooltip' => 'Enregistrer un message vocal',
+                                    'cssButtonClass' => 'btn-sm btn-success me-2',
+                                    'progress' => '#mail-create-upload-progress-' . $message->id,
+                                    'preview' => '#mail-create-upload-preview-' . $message->id,
+                                    
+                                ]) ?>
+                            <?php endif; ?>
 
-                <?= FilePreview::widget([
+                            <?= Button::info()
+                                ->cssClass('reply-button')
+                                ->submit()
+                                ->action('reply', $replyForm->getUrl())
+                                ->icon('paper-plane-o')
+                                ->sm() ?>
+                     </div>
+                </div>
+          <div id="mail-create-upload-progress-<?= $message->id ?>" style="display:none;margin:10px 0;"></div>
+             <?= FilePreview::widget([
                     'id' => 'mail-create-upload-preview-' . $message->id,
                     'options' => ['style' => 'margin-top:10px;'],
                     'edit' => true,
                 ]) ?>
 
+<div id="voice-message-preview-<?= $message->id ?>" class="voice-message-preview" style="margin-top:10px;"></div>
                 <?php ActiveForm::end(); ?>
             <?php endif; ?>
-        </div>
     <?php endif; ?>
 
     <script <?= Html::nonce() ?>>

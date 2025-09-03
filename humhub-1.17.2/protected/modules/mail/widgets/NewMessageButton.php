@@ -49,7 +49,7 @@ class NewMessageButton extends Widget
      */
     public function run()
     {
-        $button = ModalButton::defaultType($this->getLabel())->load(Url::toCreateConversation($this->guid))->id($this->id);
+        $button = ModalButton::defaultType($this->getLabel())->load(url: Url::toCreateConversation($this->guid))->id($this->id);
 
         if ($this->icon) {
             $button->icon($this->icon);
@@ -81,13 +81,14 @@ class NewMessageButton extends Widget
         return $button;
     }
 
+    //contenu de send message dans members 
     public function getLabel()
     {
         if ($this->label !== null) {
             return $this->label;
         }
 
-        return ($this->guid)
+         return ($this->guid)
             ? Yii::t('MailModule.base', 'Send message')
             : Yii::t('MailModule.base', 'Message');
     }

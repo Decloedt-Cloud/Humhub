@@ -1,20 +1,20 @@
-a:2:{i:0;s:1493:"
+a:2:{i:0;s:1541:"
 
-<a href="/humhub/humhub-1.17.2/activity/link?id=247">
+<a href="/social-voicemessage/humhub-1.17.2/activity/link?id=329">
     
     <div class="media">
                     <!-- Show user image -->
-            <span class="pull-left has-online-status img-size-medium"><img class="media-object img-rounded" src="/humhub/humhub-1.17.2/static/img/default_user.jpg" width="32" alt="Profile picture of learner1 learnertest" style="width: 32px; height: 32px" data-contentcontainer-id="175"><span class="tt user-online-status user-is-offline" title="Offline"></span></span>        
+            <span class="pull-left has-online-status img-size-medium"><img class="media-object img-rounded" src="/social-voicemessage/humhub-1.17.2/uploads/profile_image/051bae87-2ca6-4d55-95e6-cfff19ea1acd.jpg?m=1752153161" width="32" alt="Profile picture of Khalil Admin" style="width: 32px; height: 32px" data-contentcontainer-id="164"><span class="tt user-online-status user-is-offline" title="Offline"></span></span>        
         <!-- Show space image, if you are outside from a space -->
-                                    <div class="img-space pull-left space-profile-acronym-1 space-acronym" style=" background-color: #6fdbe8; width: 20px; height: 20px; font-size: 8.8px; padding: 3.6px 0; border-radius: 2px;" data-contentcontainer-id="2">ED</div><img class="img-space pull-left space-profile-image-1 img-rounded profile-user-photo hidden" src="/humhub/humhub-1.17.2/static/img/default_space.jpg" alt="Espace de bienvenue" style=" width: 20px; height: 20px" data-contentcontainer-id="2">            
+                                    <div class="img-space pull-left space-profile-acronym-1 space-acronym" style=" background-color: #6fdbe8; width: 20px; height: 20px; font-size: 8.8px; padding: 3.6px 0; border-radius: 2px;" data-contentcontainer-id="2">ED</div><img class="img-space pull-left space-profile-image-1 img-rounded profile-user-photo hidden" src="/social-voicemessage/humhub-1.17.2/static/img/default_space.jpg" alt="Espace de bienvenue" style=" width: 20px; height: 20px" data-contentcontainer-id="2">            
         
         <div class="media-body text-break">
 
             <!-- Show content -->
-            <strong>learner1 learnertest</strong> joined the space <strong>Espace de bienvenue</strong>            <br>
+            <strong>Khalil Admin</strong> wrote a new comment  "Salut"            <br>
 
             <!-- show time -->
-            <time class="tt time timeago" datetime="2025-06-06T14:58:51+01:00" title="Jun 6, 2025 - 2:58 PM">Jun 6, 2025</time>        </div>
+            <time class="tt time timeago" datetime="2025-07-10T13:16:02+01:00" title="Jul 10, 2025 - 1:16 PM">Jul 10, 2025</time>        </div>
     </div>
 
     </a>

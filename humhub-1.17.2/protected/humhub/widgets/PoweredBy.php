@@ -40,11 +40,11 @@ class PoweredBy extends Widget
 
     /**
      * @inheritdoc
-     */
-    public function run()
-    {
-        return Yii::t('base', 'Powered by {name}', ['name' => $this->getHumHubName()]);
-    }
+    //  */
+    // public function run()
+    // {
+    //     return Yii::t('base', 'Powered by {name}', ['name' => $this->getHumHubName()]);
+    // }
 
     public static function isHidden(): bool
     {

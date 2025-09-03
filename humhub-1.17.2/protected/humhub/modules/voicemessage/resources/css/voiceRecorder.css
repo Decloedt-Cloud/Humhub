@@ -1,0 +1,142 @@
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.2; }
+}
+.voice-recorder-container {
+    display: inline-block;
+    position: relative;
+}
+
+.voice-record-btn {
+    background-color: #dedede !important;
+    color: #000 !important; 
+    border: #dedede; 
+}
+
+.voice-record-btn:hover {
+    background-color: #dedede !important;
+}
+
+.voice-recording-indicator {
+    position: absolute;
+    top: -15%;
+    left: -146%;
+    transform: translateX(-50%);
+    margin-bottom: 7px;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    /* background-color: #222222; */
+    color: #000000;
+    padding: 7px 9px;
+    border-radius: 17px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+/* Icône SVG personnalisée et son animation */
+.voice-indicator-icon {
+    width: 28px;
+    height: 16px;
+    flex-shrink: 0;
+}
+.voice-indicator-icon circle {
+    fill: #ff3b30;
+}
+
+.microphone-icon {
+  width: 20px;
+  height: 20px;
+  animation: blink 1s infinite;
+  fill: #e04040;
+}
+.voice-indicator-timer {
+    color: #0404048f;
+    font-weight: normal;
+}
+
+/* === Conteneur séparé pour les enregistrements audio === */
+.voice-preview-container {
+    width: 100%;
+    margin-top: 10px;
+    padding: 0;
+}
+
+/* === Style fichier vocal === */
+.voice-file-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #f8f9fa;
+    border: 1px solid #e9ecef;
+    padding: 5px 5px;
+    margin-bottom: -2px;
+    border-radius: 3px;
+    position: relative;
+    flex-wrap: wrap;
+    width: 100%;
+    box-sizing: border-box;
+
+}
+
+/* Audio Player (vidéo utilisé comme audio) */
+.audio-player-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: inherit;
+    flex-grow: 1;
+    margin-left: 3px;
+    min-width: 0;
+}
+
+.voice-file-item video {
+    width: 316px;
+    min-width: 170px;
+    height: 45px;
+    max-width: 100%;
+    display: block;
+    border: none;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+/* Bouton de suppression */
+.voice-file-item .remove-voice-file {
+    background: none;
+    border: none;
+    color: #FC4A64;
+    cursor: pointer;
+      font-size: 15px;
+    /* padding: 0px 8px; */
+    margin-right: 371px;
+    z-index: 10;
+}
+/* Responsive */
+@media (max-width: 768px) {
+    .voice-file-item {
+        padding: 8px;
+        margin-top: 10px;
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .voice-file-item .audio-player-link {
+        margin-right: 0;
+        width: 100%;
+    }
+
+    .voice-file-item video {
+        width: 100%;
+        height: 40px;
+    }
+
+    .voice-file-item .remove-voice-file {
+        align-self: flex-end;
+        font-size: 16px;
+        margin-top: 5px;
+    }
+}

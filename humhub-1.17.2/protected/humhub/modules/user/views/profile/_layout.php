@@ -8,12 +8,12 @@ $user = $this->context->contentContainer;
 
 ?>
 <div class="container profile-layout-container">
-    <div class="row">
+    <div class="row3">
         <div class="col-md-12">
             <?= ProfileHeader::widget(['user' => $user]); ?>
         </div>
     </div>
-    <div class="row profile-content">
+    <div class="row3 profile-content">
         <div class="col-md-2 layout-nav-container">
             <?= ProfileMenu::widget(['user' => $user]); ?>
         </div>

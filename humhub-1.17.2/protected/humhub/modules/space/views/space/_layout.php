@@ -20,12 +20,12 @@ $space = $context->contentContainer;
 
 ?>
 <div class="container space-layout-container">
-    <div class="row">
+    <div class="row3">
         <div class="col-md-12">
             <?= Header::widget(['space' => $space]); ?>
         </div>
     </div>
-    <div class="row space-content">
+    <div class="row3 space-content">
         <div class="col-md-2 layout-nav-container">
             <?= Menu::widget(['space' => $space]); ?>
         </div>

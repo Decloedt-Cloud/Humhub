@@ -13,20 +13,21 @@ use yii\web\View;
 
 CardsAsset::register($this);
 ?>
-<div class="panel panel-default">
+<div class="row2">
+    <div class="panel panel-default">
 
-    <div class="panel-heading">
-        <?= Yii::t('UserModule.base', '<strong>People</strong>') ?>
-        <?= PeopleHeadingButtons::widget() ?>
+        <div class="panel-heading">
+            <?= Yii::t('UserModule.base', '<strong>People</strong>') ?>
+            <?= PeopleHeadingButtons::widget() ?>
+        </div>
+
+        <div class="panel-body">
+            <?= PeopleFilters::widget(['query' => $people]) ?>
+        </div>
     </div>
-
-    <div class="panel-body">
-        <?= PeopleFilters::widget(['query' => $people]) ?>
-    </div>
-
 </div>
 
-<div class="row cards">
+<div class="row2 cards">
     <?php if (!$people->exists()): ?>
         <div class="col-md-12">
             <div class="panel panel-default">

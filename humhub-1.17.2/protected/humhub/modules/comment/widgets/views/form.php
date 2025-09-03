@@ -1,5 +1,4 @@
 <?php
-
 use humhub\modules\comment\models\Comment;
 use humhub\modules\content\Module;
 use humhub\modules\content\widgets\richtext\RichTextField;
@@ -36,7 +35,6 @@ $placeholder = ($isNestedComment)
      style="<?php if ($isHidden): ?>display:none<?php endif; ?>">
 
     <hr>
-
     <?php $form = ActiveForm::begin([
         'action' => $submitUrl,
         'acknowledge' => true,
@@ -46,45 +44,61 @@ $placeholder = ($isNestedComment)
     <?= Html::hiddenInput('objectId', $objectId) ?>
 
     <div class="content-create-input-group">
-        <?= $form->field($model, 'message')->widget(RichTextField::class, [
-            'id' => 'newCommentForm_' . $id,
-            'form' => $form,
-            'layout' => RichTextField::LAYOUT_INLINE,
-            'pluginOptions' => ['maxHeight' => '300px'],
-            'mentioningUrl' => $mentioningUrl,
-            'placeholder' => $placeholder,
-            'events' => [
-                'scroll-active' => 'comment.scrollActive',
-                'scroll-inactive' => 'comment.scrollInactive'
-            ]
-        ])->label(false) ?>
+        <div class="input-addon-lft">
+            <div class="dropup">
+                <button class="btn btn-sm" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fa fa-plus"></i>
+                </button>
+                <ul class="dropdown-menu">
+                    <li>
+                        <?php $uploadButton = UploadButton::widget([
+                            'id' => 'comment_create_upload_' . $id,
+                            'label' => Yii::t('ContentModule.base', 'Attach Files'),
+                            'options' => ['class' => 'main_comment_upload'],
+                            'progress' => '#comment_create_upload_progress_' . $id,
+                            'preview' => '#comment_create_upload_preview_' . $id,
+                            'dropZone' => '#comment_create_form_' . $id,
+                            'max' => $contentModule->maxAttachedFiles,
+                            'cssButtonClass' => 'dropdown-item',
+                        ]) ?>
+                    </li>
+                    <li>
+                        <?= FileHandlerButtonDropdown::widget([
+                            'primaryButton' => $uploadButton,
+                            'handlers' => $fileHandlers,
+                            'pullRight' => true,
+                        ]) ?>
+                    </li>
+                </ul>
+            </div>
+        </div>
 
-        <div class="upload-buttons"><?php
-            $uploadButton = UploadButton::widget([
-                'id' => 'comment_create_upload_' . $id,
-                'tooltip' => Yii::t('ContentModule.base', 'Attach Files'),
-                'options' => ['class' => 'main_comment_upload'],
-                'progress' => '#comment_create_upload_progress_' . $id,
-                'preview' => '#comment_create_upload_preview_' . $id,
-                'dropZone' => '#comment_create_form_' . $id,
-                'max' => $contentModule->maxAttachedFiles,
-                'cssButtonClass' => 'btn-sm btn-default',
-            ]);
-            echo FileHandlerButtonDropdown::widget([
-                'primaryButton' => $uploadButton,
-                'handlers' => $fileHandlers,
-                'cssButtonClass' => 'btn-sm btn-default',
-                'pullRight' => true,
-            ]);
-            echo Button::info()
+        <div class="flex-grow-1 mb-0">
+            <?= $form->field($model, 'message')->widget(RichTextField::class, [
+                'id' => 'newCommentForm_' . $id,
+                'form' => $form,
+                'layout' => RichTextField::LAYOUT_INLINE,
+                'pluginOptions' => ['maxHeight' => '300px'],
+                'mentioningUrl' => $mentioningUrl,
+                'placeholder' => $placeholder,
+                'events' => [
+                    'scroll-active' => 'comment.scrollActive',
+                    'scroll-inactive' => 'comment.scrollInactive'
+                ]
+            ])->label(false) ?>
+        </div>
+
+        <div class="input-addon-rght">
+            <?= Button::info()
+                ->cssClass('btn-comment-submit')
+                ->submit()
+                ->action('submit', $submitUrl)
                 ->icon('send')
-                ->cssClass('btn-comment-submit')->sm()
-                ->action('submit', $submitUrl)->submit();
-            ?></div>
+                ->sm() ?>
+        </div>
     </div>
 
-    <div id="comment_create_upload_progress_<?= $id ?>" style="display:none;margin:10px 0px;"></div>
-
+    <div id="comment_create_upload_progress_<?= $id ?>" style="display:none;margin:10px 0;"></div>
     <?= FilePreview::widget([
         'id' => 'comment_create_upload_preview_' . $id,
         'options' => ['style' => 'margin-top:10px'],

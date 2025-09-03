@@ -1,0 +1,15 @@
+.voice-upload-progress {
+    width: 100%;   /* ou une largeur fixe */
+    height: 20px;
+    background-color: #eee;
+    border-radius: 4px;
+    overflow: hidden;
+    display: block; /* vérifier que ce n'est pas "none" */
+}
+
+.voice-upload-progress .progress-bar {
+    height: 100%;
+    width: 0%;
+    background-color: #4caf50;
+    transition: width 0.3s ease;
+}

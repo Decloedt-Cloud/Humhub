@@ -147,9 +147,9 @@ body {
   background-color: #fafbfe;
   color: #555;
   font-family: 'Open Sans', sans-serif;
- /* padding: 1px;  */
- 
+  padding: 0px; 
 }
+
 body a,
 body a:hover,
 body a:focus,
@@ -180,10 +180,10 @@ hr {
   position: inherit;
 }
 .layout-nav-container {
-  padding: 0 0 0 15px;
+  padding: 0 7px 0 15px;
 }
 .layout-sidebar-container {
-  padding: 0 15px 0 0;
+  padding: 0 14px 0 7px;
 }
 @media (max-width: 768px) {
   .layout-nav-container {
@@ -925,6 +925,7 @@ img {
   border-radius: 4px;
   position: relative;
   margin-bottom: 15px;
+  margin-right: -14px;
 }
 .panel h1 {
   font-size: 16px;
@@ -940,6 +941,7 @@ img {
   border: none;
   padding: 10px;
   border-radius: 4px;
+  
 }
 .panel .panel-heading .heading-link {
   color: #6fdbe8 !important;
@@ -1101,6 +1103,7 @@ img {
   .panel-profile-controls {
     padding-left: 0 !important;
     padding-top: 50px;
+    color: #000;
   }
   .panel-profile .panel-profile-header .img-profile-data h1 {
     font-size: 20px !important;
@@ -1171,6 +1174,23 @@ img {
 .well-small {
   padding: 10px;
   border-radius: 3px;
+}
+.well.post-file-list:has(ul.files:empty):not(:has(.voice-file-item)) {
+    display: none !important;
+}
+
+.well.post-file-list .voice-file-item {
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 7px;
+}
+
+.well.post-file-list {
+    background: #f9f9f9;
+    border: none;
+    padding: 0;
+    margin: 0;
+
 }
 .well {
   border: none;
@@ -1422,9 +1442,18 @@ ul.tab-menu-settings li.active > a {
   font-size: 12px;
   text-align: center;
 }
+.controls-header {  
+  text-align: left !important;
+    display: flex;
+    margin-top: 10px;
+}
+    
 @media (max-width: 991px) {
   .controls-header {
     text-align: left !important;
+    display: flex;
+    margin-top: 10px;
+    gap: 8px;
   }
 }
 #contentFormMenu {
@@ -2123,17 +2152,78 @@ div.form-group div.checkbox .help-block.help-block-error:empty {
 .form-collapsible-fields.closed .iconOpen {
   display: inline;
 }
-.content_create .content-create-input-group,
+.content-create-input-group,
 .content_edit .content-create-input-group {
   display: flex;
-  align-items: flex-end;
-  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  gap: 8px;
+  padding: 12px;
+  flex-wrap: nowrap; 
+  margin-top: 8px;
 }
+.mail-message-form .active-form {
+    display: flex;
+    align-items: center;
+    gap: 10px; 
+}
+
+.mail-message-form .content-create-input-group {
+    display: flex;
+    align-items: flex-end;
+    width: 100%;
+    gap: 6px;
+    padding: 0px; 
+    flex-wrap: nowrap;
+}
+
+.mail-message-form .humhub-richtext.ProseMirror {
+    min-height: 40px !important;
+    height: 40px !important;
+    padding: 8px 12px !important;
+    overflow: hidden !important;
+    white-space: nowrap !important;
+    border-radius: 18px !important;
+    border: 1px solid #dbdbdb !important;
+}
+
+.mail-message-form .humhub-richtext.ProseMirror:focus {
+    border-color: #21A1B3 !important;
+}
+
+.mail-message-form .file-preview {
+    width: 100%;
+    flex-basis: 100%; 
+    order: 2;
+    margin-top: 0; 
+}
+
+.content-create-input-group .flex-grow-1 {
+  flex-grow: 1;
+}
+.ProseMirror.humhub-richtext {
+  min-height: 100px; 
+  padding: 10px;
+}
+.input-addon-left,
+.input-addon-right {
+  flex-shrink: 0;
+  margin-bottom: 6px;
+}
+
+
+.content-create-input-group .form-group {
+    width: 100%;
+    margin-bottom: 0 !important;
+}
+
 .content_create .content-create-input-group > .form-group,
 .content_edit .content-create-input-group > .form-group {
   flex-grow: 1;
   width: 100%;
 }
+
+
 .content_create .content-create-input-group > .form-group [data-ui-markdown],
 .content_edit .content-create-input-group > .form-group [data-ui-markdown] {
   word-break: break-word !important;
@@ -2707,6 +2797,7 @@ table td a:hover {
   word-break: break-word;
   hyphens: auto;
 }
+
 .content-create-input-group.scrollActive .upload-buttons {
   right: 22px;
 }
@@ -2914,8 +3005,8 @@ div.nested-comments-root div.comment-container {
 }
 .contentForm_options .btn_container .label-container {
   position: absolute;
-  right: 40px;
-  top: 11px;
+  right: 40px   ;
+  top:11px ;
 }
 #content-topic-bar {
   margin-top: 5px;
@@ -3361,24 +3452,38 @@ div.nested-comments-root div.comment-container {
 .files,
 #postFormFiles_list {
   padding-left: 0;
+  width: 100%;
+  flex: 1 1 100%; /* Force les fichiers sur une nouvelle ligne */
+  order: 2; /* S'assure que les fichiers apparaissent après la zone de saisie */
 }
 ul.files {
   list-style: none;
-  margin: 0 0 5px;
+  margin: 0;
   padding: 0;
+  width: 100%;
 }
 ul.files li.file-preview-item {
-  padding-left: 24px;
-  display: none;
+  padding: 8px 69px;
+  display: block; 
+  background-color: #f8f9fa;
+  border: 1px solid #e9ecef;
+  border-radius: 4px;
+  margin-bottom: 6px;
+  position: relative;
 }
-ul.files li.file-preview-item .file-fileInfo {
-  padding-right: 20px;
+
+ul.files li.file-preview-item:last-child {
+  margin-bottom: 0;
 }
+
+
 .contentForm-upload-list {
   padding-left: 0;
+  width: 100%;
 }
+
 .contentForm-upload-list li:first-child {
-  margin-top: 10px;
+  margin-top: 0; /* Suppression de la marge top car déjà géré par gap */
 }
 .file_upload_remove_link,
 .file_upload_remove_link:hover {
@@ -3436,10 +3541,11 @@ ul.files li.file-preview-item .file-fileInfo {
   }
 }
 .post-file-list {
-  padding: 10px;
-  padding-bottom: 1px;
-  margin-bottom: 10px !important;
+    padding: 0px;
+    padding-bottom: 0px;
+    margin-bottom: 0px !important;
 }
+
 .post-file-list a,
 .post-file-list a:active,
 .post-file-list a:focus,
@@ -3458,6 +3564,7 @@ body.device-mobile #wallStream .post-files img {
 }
 .file-preview-content {
   cursor: pointer;
+  margin-left: -38px;
 }
 .image-upload-container {
   position: relative;
@@ -3484,8 +3591,7 @@ body.device-mobile #wallStream .post-files img {
 }
 .mime {
   background-repeat: no-repeat;
-  background-position: 0 0;
-  padding: 1px 0 4px 26px;
+ background-position: 5px 9px;
 }
 .mime-word {
   background-image: url("../img/mime/word.png");
@@ -3516,6 +3622,7 @@ body.device-mobile #wallStream .post-files img {
 }
 .mime-video {
   background-image: url("../img/mime/video.png");
+ 
 }
 .mime-audio {
   background-image: url("../img/mime/audio.png");
@@ -3587,22 +3694,23 @@ ul.tour-list li.completed a {
   color: #555555;
 }
 .atwho-view {
-  background: #fff;
-  color: #555555;
-  border: 1px solid #d7d7d7;
-  border-radius: 4px;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
-  display: none;
-  font-size: 14px;
-  font-weight: 400;
-  margin-top: 18px;
-  min-width: 120px;
-  max-width: 265px;
-  padding: 5px 0;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 11110 !important;
+      background: #fff;
+    color: #555555;
+    border: 1px solid #d7d7d7;
+    border-radius: 4px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+    display: none;
+    font-size: 14px;
+    font-weight: 400;
+   margin-top: -280px;
+    min-width: 120px;
+    max-width: 265px;
+    margin-left: -250px;
+    padding: 5px 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 11110 !important;
 }
 .atwho-view ul {
   list-style: none;
@@ -4272,6 +4380,31 @@ a.label-warning:hover {
   padding: 5px;
   border-radius: 4px;
 }
+
+/* Masquer tous les éléments de menu */
+.ProseMirror-menubar .ProseMirror-menuitem {
+    display: none !important;
+}
+
+/* Afficher seulement l'élément emoji */
+.ProseMirror-menubar .ProseMirror-menuitem:has(.ProseMirror-menu-insertEmoji) {
+    display: block !important;
+}
+
+/* Alternative si :has() ne fonctionne pas dans votre navigateur */
+.ProseMirror-menubar .ProseMirror-menuitem {
+    display: none !important;
+}
+
+.ProseMirror-menubar .ProseMirror-menu-insertEmoji {
+    display: inline-block !important;
+}
+
+.ProseMirror-menubar .ProseMirror-menu-insertEmoji:parent {
+    display: block !important;
+}
+
+
 .ProsemirrorEditor.fullscreen {
   height: calc(100vh - 3px);
   position: fixed;
@@ -4527,28 +4660,26 @@ a.label-warning:hover {
   right: 0;
   z-index: 10;
 }
-/**
- * Editor style attached at the top of input only visible on focus
- */
+
 .ProsemirrorEditor.focusMenu .form-control:focus {
   border-top-left-radius: 0 !important;
 }
 .ProsemirrorEditor.focusMenu .ProseMirror-menubar {
-  background: white;
-  border: 1px solid #aeaeae;
+  /* background: white;
+  border: 1px solid #aeaeae; */
   border-bottom: 0;
   border-top-left-radius: 4px;
   border-top-right-radius: 4px;
   box-sizing: border-box;
   color: #555555;
   float: left;
-  margin-top: -27px;
+  /* margin-top: -27px; */
   min-height: 1em;
   overflow: visible;
   padding: 2px 0;
-  position: relative;
-  top: 0;
-  left: 0;
+  position: absolute;
+  top: 4px; 
+  /* left: 0; */
   right: 0;
   z-index: 10;
 }
@@ -4833,23 +4964,173 @@ a.label-warning:hover {
   overflow-wrap: initial;
   word-break: initial;
   hyphens: initial;
+  border-radius: 10px;
 }
-@media screen and (max-width: 460px) {
-  .ProsemirrorEditor .ProseMirror-menu-dropdown-right {
-    right: 0;
-  }
-}
+   .ProseMirror-menu-insertEmoji svg {
+    height: 23px !important;
+    width: 23px !important;}
+    
+
 @media screen and (max-width: 768px) {
-  .ProsemirrorEditor.focusMenu .form-control:focus {
-    border-top-right-radius: 0 !important;
+    .content_create, 
+    .content_edit {
+        white-space: nowrap;
+        padding-top: 6px;
+        text-align: left;
+        margin-left: -16px;
+    }
+
+    .input-addon-left,
+    .input-addon-right {
+    margin-bottom: 8px;
+    margin-left:-1px ;
+    }
+    /* Conteneur principal - alignement avec la zone de saisie */
+    .content-create-input-group {
+        display: flex;
+        align-items: flex-end; /* Alignement en bas pour s'aligner avec la zone de texte */
+           gap: 8px;
+        padding-left: 0px;
+        margin-left: 16px;
+        margin-top: -26px;
+        
+    }
+    /* Bouton plus - aligné avec la zone de saisie */
+    .input-addon-lft {
+        display: flex;
+        align-items: flex-end; /* S'aligne avec le bas de la zone de texte */
+        height: auto;
+        margin-bottom: 8px;
+        margin-left: -6px;
+    }
+ 
+    .upload-buttons {
+        flex: 1;
+        padding: 6px 0px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        margin-left: 7px !important;
+        margin-top: 0;
+    }
+    
+    /* Zone de texte - référence pour l'alignement */
+    .flex-grow-1 {
+        flex: 1;
+        min-width: 0;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    /* Force la zone de saisie à avoir une hauteur minimum */
+    .flex-grow-1 .form-group {
+        margin-bottom: 0;
+    }
+    
+    .flex-grow-1 .ProsemirrorEditor .form-control {
+        min-height: 34px; /* Hauteur de référence */
+    }
+    
+    /* Bouton envoi - aligné avec la zone de saisie */
+    .input-addon-rght {
+        display: flex;
+        align-items: flex-end; /* S'aligne avec le bas de la zone de texte */
+        height: auto;
+        margin-bottom: 8px;
+        margin-right: -15px;
+    }
+
+    /* Ajustements pour ProseMirror - repositionner la barre d'outils */
+    .ProsemirrorEditor {
+        display: flex;
+        flex-direction: column-reverse;
+        position: relative;
+    }
+    
+    /* Force la zone de saisie à être la référence d'alignement */
+    .ProsemirrorEditor .form-control {
+        order: 1; /* Zone de saisie en premier */
+        border-radius: 4px !important;
+    }
+    /* Ajuste la zone de texte quand la barre d'outils est active */
+    .ProsemirrorEditor.focusMenu .form-control {
+        margin-top: 35px; /* Espace pour la barre d'outils */
+        border-radius: 10px !important;
+    }
+    
+    .Prosemirror .placeholder {
+        font-size: 14px;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        max-width: 100%;
+    }
+    
+    .humhub-ui-richtext {
+        min-height: 80px;
+        padding: 8px;
+    }
+    
+      .ProsemirrorEditor.focusMenu .ProseMirror-menubar {
+        /* margin-top: -14px; */
+        margin-top: 42px;
+        left: 200px;
+    }
+
+    #post_submit_button{
+        padding: 4px 12px;
+        margin-top: 9px;
+    }
+
+}
+
+@media screen and (max-width: 460px) {
+    .ProsemirrorEditor .ProseMirror-menu-dropdown-right {
+        right: 0;
+    }
+   .ProseMirror-menu-insertEmoji svg {
+    height: 23px !important;
+    width: 23px !important;
+   }
+   .humhub-emoji-chooser{
+  
+      background: #fff;
+    color: #555555;
+    border: 1px solid #d7d7d7;
+    border-radius: 4px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+    display: none;
+    font-size: 14px;
+    font-weight: 400;
+    min-width: 120px;
+    top: 160px!important;
+    max-width: 265px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 11110 !important;
+    position: fixed !important;
+    left: 40px!important;
+    margin: auto !important;
+    display: block !important;
+
   }
-  .ProsemirrorEditor.focusMenu .ProseMirror-menubar {
-    min-height: 1em;
-    margin-top: 0;
-  }
-  .ProsemirrorEditor.focusMenu .humhub-ui-richtext {
-    margin-top: 0;
-  }
+    /* Ajustements supplémentaires pour très petits écrans */
+    .content-create-input-group {
+        gap: 8px;
+        padding-left: 0px;
+        margin-left: 16px;
+        margin-top: -26px;
+
+    }
+      .ProsemirrorEditor.focusMenu .ProseMirror-menubar {
+        /* margin-top: -14px;
+        width: 116%; */
+        top: 0px; 
+        right: 0;
+    }
+   
+    .btn-comment-submit {
+        padding: 3px 6px; /* Réduit encore plus le padding */
+        font-size: 10px;
+    }
 }
 @media only screen and (max-width : 768px) {
   :root {
@@ -4896,7 +5177,7 @@ a.label-warning:hover {
     border-radius: 10px;
     background-color: #ffffff;
   }
-  #layout-content .panel {
+  .panel {
     margin-bottom: 5px;
   }
   #layout-content .panel .statistics .entry {
@@ -4906,10 +5187,17 @@ a.label-warning:hover {
     padding-right: 2px !important;
     padding-left: 2px !important;
   }
-  #layout-content > .container .row {
-    margin-right: -2px !important;
-    margin-left: -2px !important;
+  #layout-content > .container .row1 {
+    margin-right: 10px !important;
+    margin-left: -3px !important;
   }
+  #layout-content > .container .row, 
+  #layout-content > .container .row2,
+  #layout-content > .container .row3{
+       margin-left: 0 !important;
+       margin-right: 0 !important;
+    }
+  
   #layout-content > .container .col-xs-1,
   #layout-content > .container .col-sm-1,
   #layout-content > .container .col-md-1,
@@ -4983,6 +5271,7 @@ a.label-warning:hover {
   #layout-content .panel-profile .panel-profile-header .img-profile-data {
     padding-top: 50px !important;
     padding-left: 125px;
+    color: #fff;
   }
   .modal-dialog {
     width: calc(100vw - 4px) !important;
@@ -5014,6 +5303,59 @@ a.label-warning:hover {
     font-size: 1.2em !important;
   }
 }
+.comment_create{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  width: 100%;
+}
+@media (max-width: 767px) {
+.panel{
+    overflow-wrap: break-word;
+    word-break: break-word;
+    hyphens: auto;
+    position: relative;
+    margin-bottom: 1px;
+    border-radius: 0px !important;
+    margin-right: -14px;
+    border-bottom: 1px solid var(--background3);
+}
+
+.panel .panel-heading {
+    font-size: 16px;
+    font-weight: 300;
+    color: #000;
+    background-color: white;
+    border: none;
+
+
+}
+
+    .label-container {
+        position: absolute !important;
+        right: 40px !important  ;
+        top:32px !important;
+      }
+      
+    .nav-pills.preferences{
+      position: absolute; 
+      right: 0px !important; 
+      top: 28px !important;
+    }
+    .btn-group .btn {
+        flex: 1; /* Fait en sorte que les boutons se partagent l'espace */
+        padding: 6px 4px;      /* Très peu de padding */
+        white-space: nowrap;   /* Empêche le texte de passer à la ligne */
+        overflow: hidden;      /* Cache ce qui dépasse */
+        text-overflow: ellipsis; /* Ajoute "..." si le texte est trop long */
+        justify-content: center;
+        margin-left: 4px !important;
+        margin-top: -6px;
+    }
+
+}
+
 .icon-sm,
 .fa-sm {
   font-size: 0.875em;

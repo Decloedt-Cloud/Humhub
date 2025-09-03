@@ -5,5 +5,12 @@
  * @see https://docs.humhub.org/docs/admin/advanced-configuration
  */
 return [
+    'components' => [
+    'response' => [
+        'on beforeSend' => function ($event) {
+            unset($event->sender->headers['X-Frame-Options']);
+        },
+    ],
+],
 ];
 

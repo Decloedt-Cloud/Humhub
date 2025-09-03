@@ -22,7 +22,7 @@ return [
                    // 'title' => 'ddd Wayo',
 
                     // ⚡ Login auto si IP autorisée
-                    'autoLogin' => true,
+                    'autoLogin' => false,
 
                     // (Optionnel) IP autorisées pour l’autologin
                    // 'allowedIPs' => ['127.0.0.1', '192.168.1.*'], ca cousé l'affichage du page login
@@ -44,6 +44,7 @@ return [
         'urlManager' => [
             'showScriptName' => false,
             'enablePrettyUrl' => true,
+            
         ],
 
        'session' => [
@@ -53,5 +54,10 @@ return [
             ],
         ],
         
-    ]
+    ],
+    'modules' => [
+        'voicemessage' => [
+            'class' => 'humhub\modules\voicemessage\Module',
+        ],
+    ],
 ];

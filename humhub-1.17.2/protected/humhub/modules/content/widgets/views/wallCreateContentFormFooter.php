@@ -55,8 +55,7 @@ use humhub\widgets\Link;
 <div class="contentForm_options">
     <hr>
     <div class="btn_container">
-        <?= Button::info($submitButtonText)->action('submit', $submitUrl)->id('post_submit_button' . ($isModal ? '_modal' : ''))->submit() ?>
-
+       
         <?php $uploadButton = UploadButton::widget([
             'id' => 'contentFormFiles' . ($isModal ? 'Modal' : ''),
             'tooltip' => Yii::t('ContentModule.base', 'Attach Files'),
@@ -74,6 +73,8 @@ use humhub\widgets\Link;
         <!-- state data -->
         <?= Html::hiddenInput('state', Content::STATE_PUBLISHED) ?>
 
+        
+        <?= Button::info($submitButtonText)->action('submit', $submitUrl)->id('post_submit_button' . ($isModal ? '_modal' : ''))->submit() ?>
         <!-- content sharing -->
         <div class="pull-right">
             <span class="label-container">

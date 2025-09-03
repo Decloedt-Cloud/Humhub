@@ -39,15 +39,16 @@ use humhub\widgets\Button;
 
         <?= Button::save()->submit() ?>
 
-        <div class="pull-right">
-            <?= Button::warning(Yii::t('SpaceModule.manage', 'Archive'))
+        <!-- <div class="pull-right">
+         <?php /*   <?= Button::warning(Yii::t('SpaceModule.manage', 'Archive'))
                 ->action('space.archive', $model->createUrl('/space/manage/default/archive'))
                 ->cssClass('archive')->style(($model->status == Space::STATUS_ENABLED) ? 'display:inline' : 'display:none') ?>
 
             <?= Button::warning(Yii::t('SpaceModule.manage', 'Unarchive'))
                 ->action('space.unarchive', $model->createUrl('/space/manage/default/unarchive'))
                 ->cssClass('unarchive')->style(($model->status == Space::STATUS_ARCHIVED) ? 'display:inline' : 'display:none') ?>
-        </div>
+                 */ ?>
+        </div> -->
 
         <?php ActiveForm::end(); ?>
     </div>

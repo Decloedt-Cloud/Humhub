@@ -24,6 +24,7 @@ AdminGroupAsset::register($this);
 
 <?php $this->beginContent('@admin/views/group/_manageLayout.php', ['group' => $group]) ?>
 <div class="panel-body">
+    
     <div class="row">
         <div class="col-md-6">
             <?php $form = ActiveForm::begin(['action' => ['/admin/group/add-members']]); ?>

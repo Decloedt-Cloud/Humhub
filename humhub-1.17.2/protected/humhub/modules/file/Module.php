@@ -111,5 +111,5 @@ class Module extends \humhub\components\Module
      * @since 1.15
      * @var string[] List of file types added to the upload dropdown button (must be classes extending the BaseFileHandler class)
      */
-    public $defaultFileHandlers = [UploadAudioFileHandler::class, UploadImageFileHandler::class, UploadVideoFileHandler::class];
+    public $defaultFileHandlers = [ UploadImageFileHandler::class, UploadVideoFileHandler::class];
 }

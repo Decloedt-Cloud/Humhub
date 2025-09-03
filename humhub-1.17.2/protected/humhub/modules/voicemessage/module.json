@@ -1,0 +1,10 @@
+{
+  "id": "voicemessage",
+  "class": "humhub\\modules\\voicemessage\\Module",
+  "name": "Voice Message",
+  "description": "Module pour envoyer des messages vocaux.",
+  "version": "1.0.0",
+  "humhub": {
+    "minVersion": "1.7"
+  }
+}
