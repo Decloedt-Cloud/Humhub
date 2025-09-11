@@ -48,16 +48,15 @@ return [
         ],
 
        'session' => [
+        'class' => 'yii\web\Session',
             'cookieParams' => [
                 'sameSite' => 'None', // Autorise les cookies dans les iframes
                 'secure' => true,      // Nécessaire si en HTTPS
             ],
+            
         ],
+
         
     ],
-    'modules' => [
-        'voicemessage' => [
-            'class' => 'humhub\modules\voicemessage\Module',
-        ],
-    ],
+
 ];
