@@ -1,0 +1,21 @@
+a:2:{i:0;s:1528:"
+
+<a href="/social-voicemessage/humhub-1.17.2/activity/link?id=331">
+    
+    <div class="media">
+                    <!-- Show user image -->
+            <span class="pull-left has-online-status img-size-medium"><img class="media-object img-rounded" src="/social-voicemessage/humhub-1.17.2/static/img/default_user.jpg" width="32" alt="Profile picture of AdminSchoolName1 " style="width: 32px; height: 32px" data-contentcontainer-id="231"><span class="tt user-online-status user-is-offline" title="Offline"></span></span>        
+        <!-- Show space image, if you are outside from a space -->
+                                    <div class="img-space pull-left space-profile-acronym-1 space-acronym" style=" background-color: #6fdbe8; width: 20px; height: 20px; font-size: 8.8px; padding: 3.6px 0; border-radius: 2px;" data-contentcontainer-id="2">ED</div><img class="img-space pull-left space-profile-image-1 img-rounded profile-user-photo hidden" src="/social-voicemessage/humhub-1.17.2/static/img/default_space.jpg" alt="Espace de bienvenue" style=" width: 20px; height: 20px" data-contentcontainer-id="2">            
+        
+        <div class="media-body text-break">
+
+            <!-- Show content -->
+            <strong>AdminSchoolName1 </strong> joined the space <strong>Espace de bienvenue</strong>            <br>
+
+            <!-- show time -->
+            <time class="tt time timeago" datetime="2025-07-18T16:16:40+01:00" title="Jul 18, 2025 - 4:16 PM">Jul 18, 2025</time>        </div>
+    </div>
+
+    </a>
+";i:1;N;}
